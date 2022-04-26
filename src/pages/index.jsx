@@ -6,8 +6,18 @@ import { bigNumberishArrayToDecimalStringArray } from 'starknet/dist/utils/numbe
 import styles from '../styles/Home.module.css'
 import { Paper } from '@mui/material'
 import 'css-doodle'
+import ReactDOM from 'react-dom';
 
 const Home = () => {
+
+  // const doodle = useRef(null); 
+
+  // const doodle = this.refs.doodle; 
+  // const doodle = document.querySelector('css-doodle'); 
+
+  const [ randomGrid, setRandomGrid ] = useState(7) 
+  const [ randomClover, setRandomClover ] = useState(5) 
+  const [ randomHue, setRandomHue ] = useState(180)
 
   const [ previousSeeds, setPreviousSeeds ] = useState([]) 
   const { contract: oracleContract } = useOracleContract()
@@ -32,6 +42,29 @@ const Home = () => {
 
       // update array
       setPreviousSeeds([...previousSeeds, value[0]])
+
+      // between 7 and 20 
+      setRandomGrid(Math.floor(Math.random()*8 + 7));
+      console.log('grid: ', randomGrid); 
+      setRandomClover(Math.floor(Math.random()*2 + 3)); 
+      console.log('clover: ', randomClover); 
+      setRandomHue(Math.floor(Math.random()*360 + 40));
+      console.log('hue: ', randomHue); 
+
+      // doodle.current.update(`
+      // :doodle {
+      //   @grid: ${randomGrid} / 100vmax;
+      //   background: #0a0c27;
+      // }
+      // @shape: clover ${randomClover};
+      // background: hsla(
+      //   calc(${randomHue} - @i * 4), 40%, 40%, @r.9
+      // );
+      // transform:
+      //   scale(@r(.2, 1.5))
+      //   translate(@m1.@r(±50%));
+      // transition: @r(5s) ease;    
+      // `)
 
       return value[0];
     }
@@ -60,15 +93,15 @@ const Home = () => {
           }}>
           <div>random-feed-ooooo-r</div>
         </h1>
-        <css-doodle click-to-update>
+        <css-doodle>
           {`
       :doodle {
-        @grid: 7 / 100vmax;
+        @grid: ${randomGrid} / 100vmax;
         background: #0a0c27;
       }
-      @shape: clover 5;
+      @shape: clover ${randomClover};
       background: hsla(
-        calc(360 - @i * 4), 40%, 40%, @r.9
+        calc(${randomHue} - @i * 4), 40%, 40%, @r.9
       );
       transform:
         scale(@r(.2, 1.5))
@@ -110,7 +143,7 @@ const Home = () => {
             }}>{oracleContract?.address}</h2>
           </div>
 
-          <div>
+          {/* <div>
             <h1 style={{
               color: "white",
               textAlign: "center"
@@ -122,7 +155,7 @@ const Home = () => {
               return <h2 key={i}>{item}</h2>
             })}
             </p>
-          </div>
+          </div> */}
 
         </div>
       </main>
