@@ -66,12 +66,12 @@ const Home = () => {
       <Head>
         <title>Random Feed-ooooo-r</title>
         <meta name="description" content="generates random seeds for starknet"></meta>
-        <link rel="stylesheet" href="/static/style.css"></link>
       </Head>
       <main className={styles.main}>
 
         <h1 className={styles.title}
           style={{
+            font: 'roboto',
             position: 'static',
             color: "white"
           }}>
@@ -104,55 +104,29 @@ const Home = () => {
           `
       }
       </css-doodle>
-        {/* 
-<css-doodle>
-  :doodle {
-    @grid: 18 / 90vmax;
-    background: #0a0c27;
-  }
-  --hue: calc(180 + 1.5 * @row * @col);
-  background: hsl(var(--hue), 50%, 70%);
-  margin: -.5px;
-  transition: @r(.5s) ease;
-  clip-path: polygon(@pick(
-    '0 0, 100% 0, 100% 100%',
-    '0 0, 100% 0, 0 100%',
-    '0 0, 100% 100%, 0 100%',
-    '100% 0, 100% 100%, 0 100%'
-  ));
-</css-doodle> */}
+
         <div style={{
           position: "fixed",
+          top: '40%',
           display: "flex",
           flexDirection: "column",
 
         }}>
-          <Paper style={{
-            marginTop: "4%",
-            marginBottom: "4%",
-          }}>
-            <div>
-              <h2 style={{
-                paddingLeft: "4%",
-                color: "white"
-              }}>Wallet</h2>
-              <ConnectWallet />
-            </div>
-
-          </Paper>
 
           <Paper elevation={3} style={{
             marginBottom: "4%",
-            backgroundColor: "black 20%"
+            backgroundColor: "black"
           }}>
             <h2
               style={{
-                paddingLeft: "4%"
+                paddingLeft: "4%",
+                color: "white"
               }}
             >Random Seed</h2>
             <p style={{
               paddingLeft: "4%",
-              paddingRight: "4%"
+              paddingRight: "4%",
+              color: "white"
             }}>{randomNumber}</p>
 
           </Paper>
@@ -170,7 +144,7 @@ const Home = () => {
           <Paper elevation={3}>
             <h2 style={{
               paddingLeft: "4%"
-            }}>Recent Transactions</h2>
+            }}>Past Seeds</h2>
             <TransactionList />
           </Paper>
           <div>
