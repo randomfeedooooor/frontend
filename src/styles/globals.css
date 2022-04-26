@@ -3,6 +3,7 @@ body {
     margin: 0; 
     overflow: hidden; 
     background-color: #0a0c27;
+    font: "roboto"
 }
 
 a {
