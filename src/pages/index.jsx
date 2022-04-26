@@ -93,7 +93,7 @@ const Home = () => {
           }}>
           <div>random-feed-ooooo-r</div>
         </h1>
-        <css-doodle>
+        <css-doodle click-to-update>
           {`
       :doodle {
         @grid: ${randomGrid} / 100vmax;
