@@ -40,8 +40,8 @@ const Home = () => {
       <main className={styles.main}>
         <h1 className={styles.title}
           style={{
-            font: 'roboto',
-            position: 'static',
+            // font: 'roboto',
+            // position: 'static',
             color: "white"
           }}>
           <div>Welcome to</div>
@@ -69,13 +69,12 @@ const Home = () => {
           top: '40%',
           display: "flex",
           flexDirection: "column",
-
         }}>
-          <Paper elevation={3} style={{marginBottom: "2em"}}>
+          <Paper elevation={3} style={{marginBottom: "2em", padding: "1em"}}>
             <h2>Current random value</h2>
             <p>{randomNumber}</p>
           </Paper>
-          <Paper elevation={3}>
+          <Paper elevation={3} style={{marginBottom: "2em", padding: "1em"}}>
             <h2>Oracle Contract</h2>
             <p>{oracleContract?.address}</p>
           </Paper>
