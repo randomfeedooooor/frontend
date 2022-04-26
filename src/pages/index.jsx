@@ -31,7 +31,7 @@ const Home = () => {
       console.log('six: ', six);
 
       // update array
-      setPreviousSeeds([...previousSeeds, randomNumber])
+      setPreviousSeeds([...previousSeeds, value[0]])
 
       return value[0];
     }
